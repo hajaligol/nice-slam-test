@@ -11,8 +11,8 @@ grid_len:
   color: 0.16
   bound_divisible: 0.32
 pretrained_decoders:
-  coarse: pretrained/coarse.pt
-  middle_fine: pretrained/middle_fine.pt # one ckpt contain both middle and fine
+  coarse: /content/nice-slam-test/pretrained/coarse.pt
+  middle_fine: /content/nice-slam-test/pretrained/middle_fine.pt # one ckpt contain both middle and fine
 meshing:
   level_set: 10
   resolution: 256 # change to 512 for higher resolution geometry
