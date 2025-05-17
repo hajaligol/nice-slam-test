@@ -166,7 +166,8 @@ class NICE_SLAM():
 
         if self.coarse:
             ckpt = torch.load(cfg['pretrained_decoders']['coarse'],
-                              map_location=cfg['mapping']['device'])
+                              map_location=cfg['mapping']['device'],
+                              weights_only=False)
             coarse_dict = {}
             for key, val in ckpt['model'].items():
                 if ('decoder' in key) and ('encoder' not in key):
@@ -175,7 +176,8 @@ class NICE_SLAM():
             self.shared_decoders.coarse_decoder.load_state_dict(coarse_dict)
 
         ckpt = torch.load(cfg['pretrained_decoders']['middle_fine'],
-                          map_location=cfg['mapping']['device'])
+                          map_location=cfg['mapping']['device'],
+                          weights_only=False)
         middle_dict = {}
         fine_dict = {}
         for key, val in ckpt['model'].items():
