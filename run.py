@@ -34,7 +34,7 @@ def main():
     args = parser.parse_args()
 
     cfg = config.load_config(
-        args.config, 'configs/nice_slam.yaml' if args.nice else 'configs/imap.yaml')
+        args.config, '/content/nice-slam/configs/nice_slam.yaml' if args.nice else '/content/nice-slam/configs/imap.yaml')
 
     slam = NICE_SLAM(cfg, args)
 
