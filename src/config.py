@@ -1,4 +1,5 @@
 import yaml
+import os
 from src import conv_onet
 
 
@@ -20,7 +21,8 @@ def load_config(path, default_path=None):
 
     """
     # load configuration from file itself
-    with open(path, 'r') as f:
+    colab_path = os.path.join("/content/nice-slam-test", path)
+    with open(colab_path, 'r') as f:
         cfg_special = yaml.full_load(f)
 
     # check if we should inherit from a config
