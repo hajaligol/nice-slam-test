@@ -8,7 +8,7 @@ method_dict = {
 }
 
 
-def load_config(path, default_path=None):
+def load_config(path, colab=True, default_path=None):
     """
     Loads config file.
 
@@ -22,8 +22,12 @@ def load_config(path, default_path=None):
     """
     # load configuration from file itself
     colab_path = os.path.join("/content/nice-slam-test", path)
-    with open(colab_path, 'r') as f:
-        cfg_special = yaml.full_load(f)
+    if colab:
+        with open(colab_path, 'r') as f:
+            cfg_special = yaml.full_load(f)
+    else:
+        with open(path, 'r') as f:
+            cfg_special = yaml.full_load(f)
 
     # check if we should inherit from a config
     inherit_from = cfg_special.get('inherit_from')
